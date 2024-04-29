@@ -1,7 +1,7 @@
 import React from "react";
 import { CitrusIcon } from "lucide-react";
 import { APP_DATA } from "@/lib/constants";
-import { DownloadButtonGroup } from "./header/download-btn-group";
+import { DownloadButtonGroup } from "./download-btn-group";
 
 export const Navbar = () => {
   return (

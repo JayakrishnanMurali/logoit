@@ -16,14 +16,14 @@ export const DownloadButtonGroup = () => {
         Download
         <ChevronDownIcon className="h-4 w-4" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-40">
+      <DropdownMenuContent className="w-32">
         <DropdownMenuItem className="gap-2">
           <DownloadIcon className="h-4 w-4" />
-          Download PNG
+          PNG
         </DropdownMenuItem>
         <DropdownMenuItem className="gap-2">
           <DownloadIcon className="h-4 w-4" />
-          Download SVG
+          SVG
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

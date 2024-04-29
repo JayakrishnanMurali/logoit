@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/common/navbar";
+import { Navbar } from "@/components/common/header/navbar";
 import { APP_DATA } from "@/lib/constants";
 import "@/styles/globals.css";
 
