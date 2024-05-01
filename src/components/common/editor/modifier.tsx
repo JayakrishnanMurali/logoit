@@ -12,7 +12,7 @@ export const Modifier = () => {
     <div className="h-full">
       <Tabs
         defaultValue="icon"
-        className="grid h-full grid-cols-[150px_250px] px-0 py-2"
+        className="grid h-full grid-cols-[150px_260px] px-0 py-2"
         orientation="vertical"
       >
         <TabsList className="flex h-full flex-col gap-2 border-r bg-white px-2">
@@ -25,10 +25,16 @@ export const Modifier = () => {
             Background
           </TabsTrigger>
         </TabsList>
-        <TabsContent value="icon" className="border-r ">
+        <TabsContent
+          value="icon"
+          className="h-[calc(100vh-66px)] overflow-y-auto border-r pr-6"
+        >
           <IconContent />
         </TabsContent>
-        <TabsContent value="background" className="border-r ">
+        <TabsContent
+          value="background"
+          className="h-[calc(100vh-66px)] overflow-y-auto border-r"
+        >
           <BackgroundContent />
         </TabsContent>
       </Tabs>
