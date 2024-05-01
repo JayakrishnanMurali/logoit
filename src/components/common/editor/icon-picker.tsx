@@ -51,7 +51,7 @@ export const IconPicker = () => {
         <DialogTrigger
           className={cn(
             buttonVariants({ variant: "secondary", size: "icon" }),
-            "group ",
+            "group h-11 w-11",
           )}
         >
           <Icon.icon className="transform transition-all duration-300 ease-in-out group-hover:scale-110" />

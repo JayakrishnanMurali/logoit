@@ -1,12 +1,13 @@
 import React from "react";
 import { IconPicker } from "./icon-picker";
+import { Sliders } from "./sliders";
 
 export const IconContent = () => {
   return (
-    <div className="py-4">
+    <div className="space-y-10 py-4">
       <IconPicker />
 
-      {/* sliders */}
+      <Sliders />
 
       {/* color picker */}
     </div>
