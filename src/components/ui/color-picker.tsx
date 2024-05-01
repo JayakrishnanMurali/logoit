@@ -1,10 +1,19 @@
 import React from "react";
 import { SketchPicker } from "react-color";
 
-export const ColorPicker = () => {
+interface ColorPickerProps {
+  color: string;
+  onChange: (color: string) => void;
+}
+
+export const ColorPicker = ({ color, onChange }: ColorPickerProps) => {
   return (
     <div>
       <SketchPicker
+        color={color}
+        onChange={(color) => {
+          onChange(color.hex);
+        }}
         styles={{
           default: {
             picker: {
@@ -32,10 +41,7 @@ export const ColorPicker = () => {
             },
 
             alpha: {
-              borderRadius: "0.2rem",
-              border: "none",
-              height: "1rem",
-              margin: "0.8rem 0",
+              display: "none",
             },
           },
         }}
