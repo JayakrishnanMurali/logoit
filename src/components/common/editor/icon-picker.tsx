@@ -9,33 +9,52 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
+import { convertCamelCaseToSpace } from "@/lib/helpers";
 import { cn } from "@/lib/utils";
+import {
+  type IIconInfo,
+  useIcon,
+  useIconActions,
+} from "@/zustand/useIconStore";
 
-import { AppleIcon, icons } from "lucide-react";
-import { useMemo } from "react";
+import { icons } from "lucide-react";
+import { useMemo, useState } from "react";
 
 export const IconPicker = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const onCloseModal = () => setIsModalOpen(false);
+
   const iconList = useMemo(() => {
     return Object.entries(icons).map(([label, Icon]) => ({ label, Icon }));
   }, []);
 
-  const InitialIcon = AppleIcon;
+  const Icon = useIcon();
+
+  const { updateIcon } = useIconActions();
+
+  const onIconClick = (item: IIconInfo) => {
+    updateIcon(item);
+    onCloseModal();
+  };
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <Label>Icon</Label>
-        <Label>Some name</Label>
+      <div className="flex items-center justify-between gap-4">
+        <Label className="leading-4">Icon</Label>
+        <Label className="truncate leading-4">
+          {convertCamelCaseToSpace(Icon.name)}
+        </Label>
       </div>
 
-      <Dialog>
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogTrigger
           className={cn(
             buttonVariants({ variant: "secondary", size: "icon" }),
             "group ",
           )}
         >
-          <InitialIcon className="transform transition-all duration-300 ease-in-out group-hover:scale-110" />
+          <Icon.icon className="transform transition-all duration-300 ease-in-out group-hover:scale-110" />
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
@@ -52,7 +71,12 @@ export const IconPicker = () => {
                   key={item.label}
                   variant="ghost"
                   size="icon"
-                  className=""
+                  onClick={() =>
+                    onIconClick({
+                      name: item.label,
+                      icon: item.Icon,
+                    })
+                  }
                 >
                   <item.Icon />
                 </Button>
