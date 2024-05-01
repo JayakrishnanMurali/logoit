@@ -3,3 +3,5 @@ export const APP_DATA = {
   version: "0.0.1",
   description: "Logoit is a logo maker tool",
 };
+
+export const LOGO_ID = "logo-it-logo";

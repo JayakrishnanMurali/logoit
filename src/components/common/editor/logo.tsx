@@ -1,11 +1,12 @@
 "use client";
+import { LOGO_ID } from "@/lib/constants";
 import { getTailwindShadow } from "@/lib/helpers";
 import {
   useBackgroundBorderRadius,
   useBackgroundColor,
   useBackgroundPadding,
   useBackgroundShadow,
-} from "@/zustand/useBackrgoundStore";
+} from "@/zustand/useBackgroundStore";
 import {
   useIcon,
   useIconBorderColor,
@@ -37,6 +38,7 @@ export const Logo = () => {
     <div className="backgroundGrid flex h-full flex-1 items-center justify-center p-4 px-4">
       <div className="flex aspect-square h-[600px] w-[600px] items-center justify-center border border-dashed p-10">
         <div
+          id={LOGO_ID}
           style={{
             backgroundColor,
             padding,

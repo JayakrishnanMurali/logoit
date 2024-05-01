@@ -1,3 +1,4 @@
+"use client";
 import { buttonVariants } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -5,6 +6,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useDownLoad } from "@/hook/useDownload";
+import { LOGO_ID } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import {
   ChevronDownIcon,
@@ -14,6 +17,20 @@ import {
 } from "lucide-react";
 
 export const DownloadButtonGroup = () => {
+  const { downloadToPng, downloadToSvg } = useDownLoad();
+
+  const onDownloadToPng = async () => {
+    const node = document.getElementById(LOGO_ID);
+    if (!node) return;
+    await downloadToPng(node);
+  };
+
+  const onDownloadToSvg = async () => {
+    const node = document.getElementById(LOGO_ID);
+    if (!node) return;
+    await downloadToSvg(node);
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className={cn(buttonVariants(), "gap-2")}>
@@ -21,11 +38,11 @@ export const DownloadButtonGroup = () => {
         <ChevronDownIcon className="h-4 w-4" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-32">
-        <DropdownMenuItem className="gap-2">
+        <DropdownMenuItem onClick={onDownloadToPng} className="gap-2">
           <ImageIcon className="h-4 w-4" />
           PNG
         </DropdownMenuItem>
-        <DropdownMenuItem className="gap-2">
+        <DropdownMenuItem onClick={onDownloadToSvg} className="gap-2">
           <Code2Icon className="h-4 w-4" />
           SVG
         </DropdownMenuItem>

@@ -8,7 +8,7 @@ import {
   useBackgroundColor,
   useBackgroundPadding,
   useBackgroundShadow,
-} from "@/zustand/useBackrgoundStore";
+} from "@/zustand/useBackgroundStore";
 import React from "react";
 
 export const BackgroundSliders = () => {
