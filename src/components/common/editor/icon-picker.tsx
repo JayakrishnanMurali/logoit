@@ -1,4 +1,5 @@
-import { buttonVariants } from "@/components/ui/button";
+"use client";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -9,10 +10,17 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import { AppleIcon } from "lucide-react";
-import React from "react";
+
+import { AppleIcon, icons } from "lucide-react";
+import { useMemo } from "react";
 
 export const IconPicker = () => {
+  const iconList = useMemo(() => {
+    return Object.entries(icons).map(([label, Icon]) => ({ label, Icon }));
+  }, []);
+
+  const InitialIcon = AppleIcon;
+
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
@@ -27,7 +35,7 @@ export const IconPicker = () => {
             "group ",
           )}
         >
-          <AppleIcon className="transform transition-all duration-300 ease-in-out group-hover:scale-110" />
+          <InitialIcon className="transform transition-all duration-300 ease-in-out group-hover:scale-110" />
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
@@ -36,6 +44,21 @@ export const IconPicker = () => {
               Choose from a wide range of icons.
             </DialogDescription>
           </DialogHeader>
+
+          <div className="h-[60vh] overflow-y-auto pr-4">
+            <div className="grid grid-cols-10 gap-4">
+              {iconList.map((item) => (
+                <Button
+                  key={item.label}
+                  variant="ghost"
+                  size="icon"
+                  className=""
+                >
+                  <item.Icon />
+                </Button>
+              ))}
+            </div>
+          </div>
         </DialogContent>
       </Dialog>
     </div>
