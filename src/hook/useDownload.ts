@@ -1,28 +1,61 @@
-import domtoimage from "dom-to-image-more";
+import { LOGO_ID } from "@/lib/constants";
+import domToImage from "dom-to-image";
+import { toast } from "sonner";
 
 export const useDownLoad = () => {
-  const downloadToPng = async (node: HTMLElement | null) => {
-    if (!node) return;
-    const dataUrl = await domtoimage.toPng(node, {
-      bgcolor: "transparent",
-    });
+  const downloadToPng = async () => {
+    const htmlNode = document.getElementById(LOGO_ID);
+    const scale = 2;
 
-    const link = document.createElement("a");
-    link.download = "logo.png";
-    link.href = dataUrl;
-    link.click();
+    if (htmlNode) {
+      try {
+        const dataUrl = await domToImage.toPng(htmlNode, {
+          quality: 1,
+          width: htmlNode.clientWidth * scale,
+          height: htmlNode.clientHeight * scale,
+          style: {
+            transform: "scale(" + scale + ")",
+            transformOrigin: "center",
+          },
+        });
+        if (dataUrl) {
+          const link = document.createElement("a");
+          link.href = dataUrl;
+          link.download = "logo.png";
+          document.body.appendChild(link);
+          link.click();
+
+          document.body.removeChild(link);
+        }
+      } catch (error) {
+        toast.error("Error downloading image", {
+          description: "Something went wrong.",
+        });
+      }
+    }
   };
 
-  const downloadToSvg = async (node: HTMLElement | null) => {
-    if (!node) return;
-    const dataUrl = await domtoimage.toSvg(node, {
-      bgcolor: "transparent",
-    });
+  const downloadToSvg = async () => {
+    const htmlNode = document.getElementById(LOGO_ID);
 
-    const link = document.createElement("a");
-    link.download = "logo.svg";
-    link.href = dataUrl;
-    link.click();
+    if (htmlNode) {
+      try {
+        const dataUrl = await domToImage.toSvg(htmlNode);
+        if (dataUrl) {
+          const link = document.createElement("a");
+          link.href = dataUrl;
+          link.download = "logo.svg";
+          document.body.appendChild(link);
+          link.click();
+
+          document.body.removeChild(link);
+        }
+      } catch (error) {
+        toast.error("Error downloading image", {
+          description: "Something went wrong.",
+        });
+      }
+    }
   };
 
   return {

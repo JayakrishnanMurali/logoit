@@ -20,9 +20,7 @@ export const DownloadButtonGroup = () => {
   const { downloadToPng, downloadToSvg } = useDownLoad();
 
   const onDownloadToPng = async () => {
-    const node = document.getElementById(LOGO_ID);
-    if (!node) return;
-    await downloadToPng(node);
+    await downloadToPng();
   };
 
   const onDownloadToSvg = async () => {

@@ -32,15 +32,18 @@ dependencies:
   clsx:
     specifier: ^2.1.1
     version: 2.1.1
-  dom-to-image-more:
-    specifier: ^3.3.0
-    version: 3.3.0
+  dom-to-image:
+    specifier: ^2.6.0
+    version: 2.6.0
   lucide-react:
     specifier: ^0.376.0
     version: 0.376.0(react@18.2.0)
   next:
     specifier: ^14.2.1
     version: 14.2.3(react-dom@18.2.0)(react@18.2.0)
+  next-themes:
+    specifier: ^0.3.0
+    version: 0.3.0(react-dom@18.2.0)(react@18.2.0)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -50,6 +53,9 @@ dependencies:
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  sonner:
+    specifier: ^1.4.41
+    version: 1.4.41(react-dom@18.2.0)(react@18.2.0)
   tailwind-merge:
     specifier: ^2.3.0
     version: 2.3.0
@@ -64,9 +70,9 @@ dependencies:
     version: 4.5.2(@types/react@18.3.1)(react@18.2.0)
 
 devDependencies:
-  '@types/dom-to-image-more':
-    specifier: npm:@types/dom-to-image@^2.6.7
-    version: /@types/dom-to-image@2.6.7
+  '@types/dom-to-image':
+    specifier: ^2.6.7
+    version: 2.6.7
   '@types/eslint':
     specifier: ^8.56.2
     version: 8.56.10
@@ -1710,8 +1716,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /dom-to-image-more@3.3.0:
-    resolution: {integrity: sha512-4k0oxVfQ4Nrv4/Iva6FpsXTAtPCp5JnZNO/n/hsuOpe3ANlMiK50URZDQKzJslthQD8k76z9vHS3usIzmJoFVw==}
+  /dom-to-image@2.6.0:
+    resolution: {integrity: sha512-Dt0QdaHmLpjURjU7Tnu3AgYSF2LuOmksSGsUcE6ItvJoCWTBEmiMXcqBdNSAm9+QbbwD7JMoVsuuKX6ZVQv1qA==}
     dev: false
 
   /eastasianwidth@0.2.0:
@@ -2848,6 +2854,16 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
+  /next-themes@0.3.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-/QHIrsYpd6Kfk7xakK4svpDI5mmXP0gfvCoJdGpZQ2TOrQZmsW0QxjaiLn8wbIKjtm4BTSqLoix4lxYYOnLJ/w==}
+    peerDependencies:
+      react: ^16.8 || ^17 || ^18
+      react-dom: ^16.8 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /next@14.2.3(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-dowFkFTR8v79NPJO4QsBUtxv0g9BrS/phluVpMAt2ku7H+cbcBJlopXjkWlwxrk/xGqMemr7JkGPGemPrLLX7A==}
     engines: {node: '>=18.17.0'}
@@ -3471,6 +3487,16 @@ packages:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
     dev: true
+
+  /sonner@1.4.41(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-uG511ggnnsw6gcn/X+YKkWPo5ep9il9wYi3QJxHsYe7yTZ4+cOd1wuodOUmOpFuXL+/RE3R04LczdNCDygTDgQ==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}

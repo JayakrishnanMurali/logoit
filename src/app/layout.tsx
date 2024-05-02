@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/common/header/navbar";
+import { Toaster } from "@/components/ui/sonner";
 import { APP_DATA } from "@/lib/constants";
 import "@/styles/globals.css";
 
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={`${robotoMono.className}`}>
         <Navbar />
         {children}
+        <Toaster />
       </body>
     </html>
   );
