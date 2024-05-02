@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { APP_DATA } from "@/lib/constants";
 import "@/styles/globals.css";
 import { type Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Roboto_Mono } from "next/font/google";
 
@@ -51,6 +52,7 @@ export default function RootLayout({
       <body className={`${robotoMono.className}`}>
         <Navbar />
         {children}
+        <Analytics />
         <Toaster />
       </body>
     </html>
