@@ -29,8 +29,8 @@ export const Modifier = () => {
             </TabsTrigger>
           </div>
           <div className="">
-            <div className="pb-4 text-xs font-medium">
-              App by{" "}
+            <div className="pb-4 text-center text-xs font-medium">
+              App built by{" "}
               <Link
                 target="_blank"
                 rel="noopener noreferrer"
