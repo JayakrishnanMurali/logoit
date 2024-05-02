@@ -5,6 +5,8 @@ import { IconContent } from "./icon-content";
 import { BackgroundContent } from "./background-content";
 import { PaintBucket } from "lucide-react";
 import { useIcon } from "@/zustand/useIconStore";
+import Link from "next/link";
+import { APP_DATA } from "@/lib/constants";
 
 export const Modifier = () => {
   const Icon = useIcon();
@@ -15,15 +17,30 @@ export const Modifier = () => {
         className="grid h-full grid-cols-[150px_260px] px-0 py-2"
         orientation="vertical"
       >
-        <TabsList className="flex h-full flex-col gap-2 border-r bg-white px-2">
-          <TabsTrigger value="icon">
-            <Icon.icon className="h-4 w-4 flex-shrink-0" />
-            Icon
-          </TabsTrigger>
-          <TabsTrigger value="background">
-            <PaintBucket className="h-4 w-4 flex-shrink-0" />
-            Background
-          </TabsTrigger>
+        <TabsList className="flex h-full flex-col justify-between gap-2 border-r px-2">
+          <div className="flex flex-col">
+            <TabsTrigger value="icon">
+              <Icon.icon className="h-4 w-4 flex-shrink-0" />
+              Icon
+            </TabsTrigger>
+            <TabsTrigger value="background">
+              <PaintBucket className="h-4 w-4 flex-shrink-0" />
+              Background
+            </TabsTrigger>
+          </div>
+          <div className="">
+            <div className="pb-4 text-xs font-medium">
+              App by{" "}
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+                href={APP_DATA.website}
+              >
+                {APP_DATA.author}
+              </Link>
+            </div>
+          </div>
         </TabsList>
         <TabsContent
           value="icon"

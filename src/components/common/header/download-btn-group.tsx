@@ -7,7 +7,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useDownLoad } from "@/hook/useDownload";
-import { LOGO_ID } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import {
   ChevronDownIcon,
@@ -24,9 +23,7 @@ export const DownloadButtonGroup = () => {
   };
 
   const onDownloadToSvg = async () => {
-    const node = document.getElementById(LOGO_ID);
-    if (!node) return;
-    await downloadToSvg(node);
+    await downloadToSvg();
   };
 
   return (

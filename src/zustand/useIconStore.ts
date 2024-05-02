@@ -1,4 +1,4 @@
-import { AppleIcon, type LucideIcon } from "lucide-react";
+import { Blend, type LucideIcon } from "lucide-react";
 import { create } from "zustand";
 
 export interface IIconInfo {
@@ -29,11 +29,11 @@ interface IconStore {
 const useIconStore = create<IconStore>((set) => ({
   iconInfo: {
     name: "Apple",
-    icon: AppleIcon,
+    icon: Blend,
   },
   size: 300,
   rotate: 0,
-  borderWidth: 1,
+  borderWidth: 1.5,
   fillOpacity: 0,
   borderColor: "#000",
   fillColor: "#000",

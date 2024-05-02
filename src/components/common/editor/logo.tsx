@@ -36,27 +36,31 @@ export const Logo = () => {
 
   return (
     <div className="backgroundGrid flex h-full flex-1 items-center justify-center p-4 px-4">
-      <div className="flex aspect-square h-[600px] w-[600px] items-center justify-center border border-dashed p-10">
+      <div className="border border-dashed">
         <div
           id={LOGO_ID}
-          style={{
-            backgroundColor,
-            padding,
-            borderRadius,
-            boxShadow: getTailwindShadow(shadow),
-          }}
-          className="flex aspect-square h-full items-center  justify-center"
+          className="flex aspect-square h-[600px] w-[600px] items-center justify-center  p-10"
         >
-          <Icon.icon
+          <div
             style={{
-              transform: `rotate(${rotate}deg)`,
+              backgroundColor,
+              padding,
+              borderRadius,
+              boxShadow: getTailwindShadow(shadow),
             }}
-            size={size}
-            strokeWidth={strokeWidth}
-            stroke={strokeColor}
-            fill={fillColor}
-            fillOpacity={fillOpacity / 100}
-          />
+            className="flex aspect-square h-full items-center  justify-center"
+          >
+            <Icon.icon
+              style={{
+                transform: `rotate(${rotate}deg)`,
+              }}
+              size={size}
+              strokeWidth={strokeWidth}
+              stroke={strokeColor}
+              fill={fillColor}
+              fillOpacity={fillOpacity / 100}
+            />
+          </div>
         </div>
       </div>
     </div>
