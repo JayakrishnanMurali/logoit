@@ -1,3 +1,6 @@
+import { type IIconInfo } from "@/zustand/useIconStore";
+import { icons } from "lucide-react";
+
 export const convertCamelCaseToSpace = (str: string) => {
   const res = str
     .replace(/([A-Z])/g, " $1")
@@ -18,4 +21,27 @@ export const getTailwindShadow = (shadow: number) => {
   if (shadow === 100) return "0 25px 50px -12px rgb(0 0 0 / 0.25)";
 
   return "0 0 #0000";
+};
+
+export const getRandomLucideIcon = (): IIconInfo => {
+  const iconList = () => {
+    return Object.entries(icons).map(([label, Icon]) => ({ label, Icon }));
+  };
+
+  const randomIndex = Math.floor(Math.random() * iconList().length);
+
+  const randomIcon = iconList()[randomIndex];
+
+  return {
+    name: randomIcon!.label,
+    icon: randomIcon!.Icon,
+  };
+};
+
+export const getRandomColorHex = () => {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+};
+
+export const getRandomNumber = (from: number, to: number) => {
+  return Math.floor(Math.random() * (to - from) + from);
 };

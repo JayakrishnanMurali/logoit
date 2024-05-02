@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 export const DownloadButtonGroup = () => {
-  const { downloadToPng, downloadToSvg } = useDownLoad();
+  const { downloadToPng, downloadToSvg, downloadToFavicon } = useDownLoad();
 
   const onDownloadToPng = async () => {
     await downloadToPng();
@@ -24,6 +24,10 @@ export const DownloadButtonGroup = () => {
 
   const onDownloadToSvg = async () => {
     await downloadToSvg();
+  };
+
+  const onDownloadToFavicon = async () => {
+    await downloadToFavicon();
   };
 
   return (
@@ -41,9 +45,9 @@ export const DownloadButtonGroup = () => {
           <Code2Icon className="h-4 w-4" />
           SVG
         </DropdownMenuItem>
-        <DropdownMenuItem disabled className="gap-2">
+        <DropdownMenuItem onClick={onDownloadToFavicon} className="gap-2">
           <FolderArchiveIcon className="h-4 w-4" />
-          Favicon
+          Favicons
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

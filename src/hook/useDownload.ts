@@ -1,6 +1,8 @@
 import { LOGO_ID } from "@/lib/constants";
 import domToImage from "dom-to-image";
 import { toast } from "sonner";
+import { saveAs } from "file-saver";
+import JSZip from "jszip";
 
 export const useDownLoad = () => {
   const downloadToPng = async () => {
@@ -58,8 +60,53 @@ export const useDownLoad = () => {
     }
   };
 
+  const downloadToFavicon = async () => {
+    const htmlNode = document.getElementById(LOGO_ID);
+    const sizes = [64, 128, 512, 1024];
+
+    if (htmlNode) {
+      try {
+        const dataUrl = await domToImage.toPng(htmlNode);
+        const img = new Image();
+        img.src = dataUrl;
+
+        img.onload = async function () {
+          const zip = new JSZip();
+
+          for (const size of sizes) {
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+            canvas.width = size;
+            canvas.height = size;
+            ctx?.drawImage(img, 0, 0, size, size);
+            const blob = await new Promise<Blob | null>((resolve) =>
+              canvas.toBlob(resolve),
+            );
+            if (blob) {
+              zip.file(`favicon${size}x${size}.ico`, blob);
+            }
+          }
+
+          try {
+            const content = await zip.generateAsync({ type: "blob" });
+            saveAs(content, "favicons.zip");
+          } catch (error) {
+            toast.error("Error downloading image", {
+              description: "Something went wrong.",
+            });
+          }
+        };
+      } catch (error) {
+        toast.error("Error downloading image", {
+          description: "Something went wrong.",
+        });
+      }
+    }
+  };
+
   return {
     downloadToPng,
     downloadToSvg,
+    downloadToFavicon,
   };
 };
