@@ -4,6 +4,7 @@ export const APP_DATA = {
   description: "Logoit is a logo maker tool",
   author: "Jayakrishnan M",
   website: "https://www.ghostkode.com/",
+  github: "https://github.com/JayakrishnanMurali/logoit",
   keywords: [
     "logo",
     "design",

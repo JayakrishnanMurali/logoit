@@ -5,6 +5,7 @@ import { APP_DATA } from "@/lib/constants";
 import { DownloadButtonGroup } from "./download-btn-group";
 import { Button } from "@/components/ui/button";
 import { useShuffle } from "@/hook/useShuffle";
+import { BuyMeACoffee } from "./buy-me-a-coffee";
 
 export const Navbar = () => {
   const { shuffle } = useShuffle();
@@ -19,6 +20,7 @@ export const Navbar = () => {
       </div>
 
       <div className="flex items-center gap-x-4">
+        <BuyMeACoffee />
         <Button onClick={shuffle} variant="secondary" className="gap-x-2">
           <Shuffle className="h-4 w-4" />
           Shuffle

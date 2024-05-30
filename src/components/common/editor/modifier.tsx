@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import React from "react";
 import { IconContent } from "./icon-content";
 import { BackgroundContent } from "./background-content";
-import { PaintBucket } from "lucide-react";
+import { Github, PaintBucket } from "lucide-react";
 import { useIcon } from "@/zustand/useIconStore";
 import Link from "next/link";
 import { APP_DATA } from "@/lib/constants";
@@ -31,14 +31,25 @@ export const Modifier = () => {
           <div className="">
             <div className="pb-4 text-center text-xs font-medium">
               App built by{" "}
-              <Link
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline"
-                href={APP_DATA.website}
-              >
-                {APP_DATA.author}
-              </Link>
+              <div className="flex items-center gap-2">
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                  href={APP_DATA.website}
+                >
+                  {APP_DATA.author}
+                </Link>
+
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={APP_DATA.github}
+                  className="ml-2 underline"
+                >
+                  <Github className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </TabsList>
